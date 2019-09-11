@@ -1,0 +1,30 @@
+package $!{package.Entity};
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+
+#set($table.comment = $!table.comment.replace('表',''))
+/**
+* $!table.comment entity
+* @author:$!cfg.author
+* @Time: $!date
+*/
+@Data
+@TableName("$!{table.name}")
+public class $!{entity}Entity  {
+#foreach($!element in $!table.fields)
+#if($!element.name == "CREATE_BY" || $!element.name == "CREATE_TIME" || $!element.name == "MODIFY_BY" || $!element.name == "MODIFY_TIME")
+#else
+#if($!element.keyIdentityFlag)
+	@TableId(value = "$!element.name", type = IdType.AUTO)
+#end
+    @ApiModelProperty("$!element.comment")
+    private $!element.columnType.type $!element.propertyName;
+
+#end
+#end
+}

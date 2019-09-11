@@ -1,0 +1,16 @@
+package $!{package.Mapper};
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import $!{package.Entity}.$!{entity}Entity;
+
+#set($table.comment = $!table.comment.replace('表',''))
+/**
+* $!table.comment mapper
+* @author:$!cfg.author
+* @Time: $!date
+*/
+@Mapper
+public interface $!{entity}Mapper extends BaseMapper<$!{entity}Entity> {
+
+}

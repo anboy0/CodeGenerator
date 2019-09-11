@@ -1,0 +1,14 @@
+package $!{package.Service};
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import $!{package.Entity}.$!{entity}Entity;
+
+#set($table.comment = $!table.comment.replace('表',''))
+/**
+* $!table.comment service接口
+* @author:$!cfg.author
+* @Time: $!date
+*/
+public interface I$!{entity}Service extends IService<$!{entity}Entity> {
+
+}
